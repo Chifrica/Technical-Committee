@@ -1,0 +1,20 @@
+[
+  {
+    "name": "John Doe",
+    "contact": "08012345678",
+    "email": "john@example.com",
+    "department": "Technical",
+    "graduation": "2023",
+    "position": "Chairman",
+    "picture": "images/john.jpg"
+  },
+  {
+    "name": "Jane Smith",
+    "contact": "08198765432",
+    "email": "jane@example.com",
+    "department": "Choir",
+    "graduation": "2022",
+    "position": "Secretary",
+    "picture": "images/jane.jpg"
+  }
+]

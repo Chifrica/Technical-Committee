@@ -8,8 +8,10 @@
 <body>
   <header>
     <h1>Admin Panel</h1>
-    <h2>Add / Update Members</h2>
+    <h2>Manage Members</h2>
   </header>
+
+  <!--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-->
 
   <main>
     <form id="member-form">
@@ -19,8 +21,17 @@
       <input type="text" id="department" placeholder="Department" required>
       <input type="text" id="graduation" placeholder="Year of Graduation" required>
       <input type="text" id="position" placeholder="Office Position" required>
-      <input type="file" id="picture" accept="image/*" required>
+      <input type="text" id="picture" placeholder="Image URL (e.g. images/john.jpg)" required>
       <button type="submit">Save Member</button>
+    </form>
+
+    <hr>
+
+    <form id="github-auth">
+      <h3>GitHub Settings</h3>
+      <input type="text" id="repo-owner" placeholder="GitHub Username" required>
+      <input type="text" id="repo-name" placeholder="Repository Name" required>
+      <input type="password" id="token" placeholder="GitHub Personal Access Token" required>
     </form>
 
     <div>
@@ -28,6 +39,71 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById("member-form");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Collect form data
+      const member = {
+        name: document.getElementById("name").value,
+        contact: document.getElementById("contact").value,
+        email: document.getElementById("email").value,
+        department: document.getElementById("department").value,
+        graduation: document.getElementById("graduation").value,
+        position: document.getElementById("position").value,
+        picture: document.getElementById("picture").value
+      };
+
+      // GitHub info
+      const owner = document.getElementById("repo-owner").value;
+      const repo = document.getElementById("repo-name").value;
+      const token = document.getElementById("token").value;
+
+      const filePath = "members.json"; // location in repo
+      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+
+      // Get existing file content & SHA
+      const response = await fetch(apiUrl, {
+        headers: { Authorization: `token ${token}` }
+      });
+      const fileData = await response.json();
+
+      let members = [];
+      if (fileData.content) {
+        const existingContent = atob(fileData.content);
+        members = JSON.parse(existingContent);
+      }
+
+      // Add new member
+      members.push(member);
+
+      // Encode new JSON
+      const updatedContent = btoa(JSON.stringify(members, null, 2));
+
+      // Commit to GitHub
+      const commitResponse = await fetch(apiUrl, {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: "Add new member",
+          content: updatedContent,
+          sha: fileData.sha // required for updates
+        })
+      });
+
+      if (commitResponse.ok) {
+        alert("Member saved successfully to GitHub!");
+        form.reset();
+      } else {
+        alert("Error saving member. Check console.");
+        console.error(await commitResponse.json());
+      }
+    });
+  </script>
 </body>
 </html>
