@@ -6,7 +6,7 @@
     "department": "Technical",
     "graduation": "2023",
     "position": "Chairman",
-    "picture": "images/john.jpg"
+    "picture": "https://i.pravatar.cc/150?u=john@example.com"
   },
   {
     "name": "Jane Smith",
@@ -15,6 +15,15 @@
     "department": "Choir",
     "graduation": "2022",
     "position": "Secretary",
-    "picture": "images/jane.jpg"
+    "picture": "https://i.pravatar.cc/150?u=jane@example.com"
+  },
+  {
+    "name": "David Okon",
+    "contact": "09055566777",
+    "email": "david@example.com",
+    "department": "Ushering",
+    "graduation": "2024",
+    "position": "Member",
+    "picture": "https://i.pravatar.cc/150?u=david@example.com"
   }
 ]

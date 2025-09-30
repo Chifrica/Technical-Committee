@@ -1,51 +1,53 @@
-// Save new member
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("member-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const membersContainer = document.getElementById('members-container');
+  const searchInput = document.getElementById('search-input');
+  let allMembers = []; // This will store all members fetched from JSON
 
-      const reader = new FileReader();
-      const file = document.getElementById("picture").files[0];
+  // Fetch data from the JSON file
+  fetch('members.json')
+    .then(response => response.json())
+    .then(data => {
+      allMembers = data; // Store the fetched data
+      displayMembers(allMembers); // Display all members initially
+    })
+    .catch(error => {
+      console.error('Error fetching members data:', error);
+      membersContainer.innerHTML = '<p>Sorry, could not load member data.</p>';
+    });
 
-      reader.onload = function() {
-        const member = {
-          name: document.getElementById("name").value,
-          contact: document.getElementById("contact").value,
-          email: document.getElementById("email").value,
-          department: document.getElementById("department").value,
-          graduation: document.getElementById("graduation").value,
-          position: document.getElementById("position").value,
-          picture: reader.result
-        };
+  // Function to display members on the page
+  function displayMembers(members) {
+    membersContainer.innerHTML = ''; // Clear any existing content
 
-        let members = JSON.parse(localStorage.getItem("members")) || [];
-        members.push(member);
-        localStorage.setItem("members", JSON.stringify(members));
-        alert("Member saved!");
-        form.reset();
-      };
+    if (members.length === 0) {
+      membersContainer.innerHTML = '<p>No members found.</p>';
+      return;
+    }
 
-      if (file) {
-        reader.readAsDataURL(file);
-      }
+    members.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'card'; // Use the 'card' class from your CSS
+
+      card.innerHTML = `
+        <img src="${member.picture}" alt="Photo of ${member.name}">
+        <h4>${member.name}</h4>
+        <p><strong>Position:</strong> ${member.position}</p>
+        <p><strong>Department:</strong> ${member.department}</p>
+      `;
+      membersContainer.appendChild(card);
     });
   }
 
-  // Display members on index.html
-  const container = document.getElementById("members-container");
-  if (container) {
-    let members = JSON.parse(localStorage.getItem("members")) || [];
-    container.innerHTML = members.map(m => `
-      <div class="card">
-        <img src="${m.picture}" alt="${m.name}">
-        <h3>${m.name}</h3>
-        <p><strong>Contact:</strong> ${m.contact}</p>
-        <p><strong>Email:</strong> ${m.email}</p>
-        <p><strong>Dept:</strong> ${m.department}</p>
-        <p><strong>Graduation:</strong> ${m.graduation}</p>
-        <p><strong>Position:</strong> ${m.position}</p>
-      </div>
-    `).join("");
-  }
+  // Add an event listener for the search input
+  searchInput.addEventListener('input', (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    
+    const filteredMembers = allMembers.filter(member => 
+      member.name.toLowerCase().includes(searchTerm) ||
+      member.position.toLowerCase().includes(searchTerm) ||
+      member.department.toLowerCase().includes(searchTerm)
+    );
+    
+    displayMembers(filteredMembers);
+  });
 });

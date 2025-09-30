@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Technical Committee | Members Database</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +14,12 @@
   </header>
 
   <main>
-    <div id="members-container" class="grid"></div>
+    <form id="search-form" role="search">
+      <input id="search-input" type="search" placeholder="Search for a member..." aria-label="Search members">
+    </form>
+    
+    <div id="members-container" class="grid">
+      </div>
   </main>
 
   <footer>
