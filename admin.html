@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin | Technical Committee</title>
+  <title>Admin – Technical Committee</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Admin Panel</h1>
-    <h2>Manage Members</h2>
-  </header>
+  <h1>Technical Committee</h1>
+  <h2>Chapel of Redemption, ABU</h2>
+  <h3>Admin – Members Database</h3>
 
-  <!--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-->
+  <!-- GitHub Authentication -->
+  <section>
+    <h4>GitHub Settings</h4>
+    <form id="github-auth">
+      <input type="text" id="repo-owner" value="Chifrica" readonly>
+      <input type="text" id="repo-name" value="Technical Committee" readonly>
+      <input type="password" id="token" placeholder="Paste GitHub Token Here" required>
+      <button type="submit">Connect</button>
+    </form>
+  </section>
 
-  <main>
+  <!-- Member Form -->
+  <section id="member-form-section" style="display:none;">
+    <h4>Add New Member</h4>
     <form id="member-form">
       <input type="text" id="name" placeholder="Full Name" required>
       <input type="text" id="contact" placeholder="Contact" required>
@@ -21,31 +31,68 @@
       <input type="text" id="department" placeholder="Department" required>
       <input type="text" id="graduation" placeholder="Year of Graduation" required>
       <input type="text" id="position" placeholder="Office Position" required>
-      <input type="text" id="picture" placeholder="Image URL (e.g. images/john.jpg)" required>
+      <input type="text" id="picture" placeholder="Image Path (e.g. images/john.jpg)">
       <button type="submit">Save Member</button>
     </form>
+  </section>
 
-    <hr>
-
-    <form id="github-auth">
-      <h3>GitHub Settings</h3>
-      <input type="text" id="repo-owner" placeholder="GitHub Username" required>
-      <input type="text" id="repo-name" placeholder="Repository Name" required>
-      <input type="password" id="token" placeholder="GitHub Personal Access Token" required>
-    </form>
-
-    <div>
-      <a href="index.html">← Back to Members Page</a>
-    </div>
-  </main>
+  <!-- Existing Members -->
+  <section id="members-section" style="display:none;">
+    <h4>Current Members</h4>
+    <ul id="members-list"></ul>
+  </section>
 
   <script>
-    const form = document.getElementById("member-form");
+    let token = "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";
+    let repoOwner = "Chifrica";
+    let repoName = "Technical Committee";
+    const filePath = "members.json";
 
-    form.addEventListener("submit", async (e) => {
+    // Handle GitHub Auth
+    document.getElementById("github-auth").addEventListener("submit", function(e) {
       e.preventDefault();
+      token = document.getElementById("token").value.trim();
+      if (!token) return alert("Please paste your GitHub token.");
+      document.getElementById("member-form-section").style.display = "block";
+      document.getElementById("members-section").style.display = "block";
+      loadMembers();
+    });
 
-      // Collect form data
+    // Fetch existing members.json
+    async function loadMembers() {
+      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+      const res = await fetch(url, {
+        headers: { Authorization: `token ${token}` }
+      });
+      if (!res.ok) {
+        alert("Failed to load members.json");
+        return;
+      }
+      const data = await res.json();
+      const content = atob(data.content);
+      const members = JSON.parse(content);
+      renderMembers(members, data.sha);
+    }
+
+    // Render member list
+    function renderMembers(members, sha) {
+      const list = document.getElementById("members-list");
+      list.innerHTML = "";
+      members.forEach((m, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${m.name} – ${m.position} (${m.department})`;
+        // Delete button
+        const btn = document.createElement("button");
+        btn.textContent = "Delete";
+        btn.onclick = () => deleteMember(index, members, sha);
+        li.appendChild(btn);
+        list.appendChild(li);
+      });
+    }
+
+    // Add new member
+    document.getElementById("member-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
       const member = {
         name: document.getElementById("name").value,
         contact: document.getElementById("contact").value,
@@ -56,54 +103,58 @@
         picture: document.getElementById("picture").value
       };
 
-      // GitHub info
-      const owner = document.getElementById("repo-owner").value;
-      const repo = document.getElementById("repo-name").value;
-      const token = document.getElementById("token").value;
-
-      const filePath = "members.json"; // location in repo
-      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
-
-      // Get existing file content & SHA
-      const response = await fetch(apiUrl, {
+      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+      const res = await fetch(url, {
         headers: { Authorization: `token ${token}` }
       });
-      const fileData = await response.json();
-
-      let members = [];
-      if (fileData.content) {
-        const existingContent = atob(fileData.content);
-        members = JSON.parse(existingContent);
-      }
-
-      // Add new member
+      const data = await res.json();
+      const members = JSON.parse(atob(data.content));
       members.push(member);
 
-      // Encode new JSON
       const updatedContent = btoa(JSON.stringify(members, null, 2));
 
-      // Commit to GitHub
-      const commitResponse = await fetch(apiUrl, {
+      await fetch(url, {
         method: "PUT",
         headers: {
           Authorization: `token ${token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          message: "Add new member",
+          message: "Add member",
           content: updatedContent,
-          sha: fileData.sha // required for updates
+          sha: data.sha
         })
       });
 
-      if (commitResponse.ok) {
-        alert("Member saved successfully to GitHub!");
-        form.reset();
-      } else {
-        alert("Error saving member. Check console.");
-        console.error(await commitResponse.json());
-      }
+      alert("Member added!");
+      loadMembers();
+      e.target.reset();
     });
+
+    // Delete a member
+    async function deleteMember(index, members, sha) {
+      if (!confirm("Delete this member?")) return;
+      members.splice(index, 1);
+
+      const updatedContent = btoa(JSON.stringify(members, null, 2));
+      const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+
+      await fetch(url, {
+        method: "PUT",
+        headers: {
+          Authorization: `token ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: "Delete member",
+          content: updatedContent,
+          sha: sha
+        })
+      });
+
+      alert("Member deleted!");
+      loadMembers();
+    }
   </script>
 </body>
 </html>
