@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <h4>${member.name}</h4>
         <p><strong>Position:</strong> ${member.position}</p>
         <p><strong>Department:</strong> ${member.department}</p>
+        <p><strong>Graduation Year:</strong> ${member.graduation}</p>
+        <p><strong>Email:</strong> <a href="mailto:${member.email}">${member.email}</a></p>
+        <p><strong>Contact:</strong> ${member.contact}</p>
       `;
       membersContainer.appendChild(card);
     });
