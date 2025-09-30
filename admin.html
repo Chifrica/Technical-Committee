@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Technical Committee</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Panel</h1>
+    <h2>Add / Update Members</h2>
+  </header>
+
+  <main>
+    <form id="member-form">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="text" id="contact" placeholder="Contact" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="department" placeholder="Department" required>
+      <input type="text" id="graduation" placeholder="Year of Graduation" required>
+      <input type="text" id="position" placeholder="Office Position" required>
+      <input type="file" id="picture" accept="image/*" required>
+      <button type="submit">Save Member</button>
+    </form>
+
+    <div>
+      <a href="index.html">← Back to Members Page</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
