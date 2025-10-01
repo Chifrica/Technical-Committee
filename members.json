@@ -15,7 +15,7 @@
     "department": "Telecommunication Engineering",
     "graduation": "2026",
     "office": "Secretary",
-    "picture": "http://127.0.0.1:5500/image/IMG-20250917-WA0015.jpg"
+    "picture": "https://chifrica.github.io/Technical-Committee/image/althea.jpg"
   },
   {
     "name": "Aminu Yusuf Musa",
@@ -24,7 +24,7 @@
     "department": "Chemical Engineering",
     "graduation": "2025",
     "office": "Sound Head (2024/2025)",
-    "picture": "http://127.0.0.1:5500/image/IMG-20250918-WA0043.jpg"
+    "picture": "https://chifrica.github.io/Technical-Committee/image/smilely.jpg"
   },
   {
     "name": "Igbodika Chimeberechi",
@@ -33,16 +33,16 @@
     "department": "Social Studies",
     "graduation": "2025",
     "office": "Treasurer (2023/2024)",
-    "picture": "http://127.0.0.1:5500/image/IMG-20250927-WA0024.jpg"
+    "picture": "https://chifrica.github.io/Technical-Committee/image/ebere.jpg"
   },
   {
-    "name": "David Okon",
+    "name": "Fatima",
     "contact": "09055566777",
     "email": "david@example.com",
     "department": "Ushering",
     "graduation": "2025",
     "office": "Treasurer (2024/2025)",
-    "picture": "http://127.0.0.1:5500/image/IMG-20250927-WA0022.jpg"
+    "picture": "https://chifrica.github.io/Technical-Committee/image/fatima.jpg"
     
   },
   {
@@ -52,6 +52,15 @@
     "department": "Ushering",
     "graduation": "2025",
     "office": "Treasurer (2024/2025)",
-    "picture": "http://127.0.0.1:5500/image/IMG-20250918-WA0043.jpg"
+    "picture": "https://chifrica.github.io/Technical-Committee/image/grace.jpg"
+  },
+  {
+    "name": "David Okon",
+    "contact": "09055566777",
+    "email": "david@example.com",
+    "department": "Ushering",
+    "graduation": "2025",
+    "office": "Treasurer (2024/2025)",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
   }
-]
+]  
