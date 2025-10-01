@@ -63,6 +63,16 @@ form button:hover {
   margin-bottom: 10px;
 }
 
+.card img,
+.member-card img {
+  width: 100%;
+  height: 220px;       /* same fixed height for every image — adjust as needed */
+  display: block;
+  object-fit: cover;   /* fills area, may crop but preserves aspect ratio */
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
 footer {
   text-align: center;
   padding: 15px;
@@ -71,10 +81,10 @@ footer {
   margin-top: 20px;
 }
 
-@supports not (aspect-ratio: 1/1) {
+/* @supports not (aspect-ratio: 1/1) {
   .card img,
   .member-card img {
     height: 180px;
     object-fit: cover;
   }
-}
+} */

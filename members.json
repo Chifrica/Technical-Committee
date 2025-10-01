@@ -9,21 +9,49 @@
     "picture": "https://chifrica.github.io/Blessing-Onwunali/Image/image%20blog%202.jpeg"
   },
   {
-    "name": "Jane Smith",
-    "contact": "08198765432",
+    "name": "Emmanuel Simon",
+    "contact": "0804672397",
     "email": "jane@example.com",
-    "department": "Choir",
-    "graduation": "2022",
+    "department": "Telecommunication Engineering",
+    "graduation": "2026",
     "office": "Secretary",
-    "picture": "https://raw.githubusercontent.com/Chifrica/Technical-Committee/2e75c4c43603bf6ac6c8471013277d29b73ebd9f/image/IMG-20250917-WA0015.jpg"
+    "picture": "http://127.0.0.1:5500/image/IMG-20250917-WA0015.jpg"
+  },
+  {
+    "name": "Aminu Yusuf Musa",
+    "contact": "09055566777",
+    "email": "----.com",
+    "department": "Chemical Engineering",
+    "graduation": "2025",
+    "office": "Sound Head (2024/2025)",
+    "picture": "http://127.0.0.1:5500/image/IMG-20250918-WA0043.jpg"
+  },
+  {
+    "name": "Igbodika Chimeberechi",
+    "contact": "09055566777",
+    "email": "-------.com",
+    "department": "Social Studies",
+    "graduation": "2025",
+    "office": "Treasurer (2023/2024)",
+    "picture": "http://127.0.0.1:5500/image/IMG-20250927-WA0024.jpg"
   },
   {
     "name": "David Okon",
     "contact": "09055566777",
     "email": "david@example.com",
     "department": "Ushering",
-    "graduation": "2024",
-    "office": "Member",
-    "picture": "https://github.com/Chifrica/Technical-Committee/blob/main/image/IMG-20250918-WA0043.jpg"
+    "graduation": "2025",
+    "office": "Treasurer (2024/2025)",
+    "picture": "http://127.0.0.1:5500/image/IMG-20250927-WA0022.jpg"
+    
+  },
+  {
+    "name": "David Okon",
+    "contact": "09055566777",
+    "email": "david@example.com",
+    "department": "Ushering",
+    "graduation": "2025",
+    "office": "Treasurer (2024/2025)",
+    "picture": "http://127.0.0.1:5500/image/IMG-20250918-WA0043.jpg"
   }
 ]
