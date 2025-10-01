@@ -9,15 +9,6 @@
     "picture": "https://chifrica.github.io/Blessing-Onwunali/Image/image%20blog%202.jpeg"
   },
   {
-    "name": "Emmanuel Simon",
-    "contact": "0804672397",
-    "email": "jane@example.com",
-    "department": "Telecommunication Engineering",
-    "graduation": "2026",
-    "office": "Secretary",
-    "picture": "https://chifrica.github.io/Technical-Committee/image/althea.jpg"
-  },
-  {
     "name": "Aminu Yusuf Musa",
     "contact": "09055566777",
     "email": "----.com",
@@ -55,9 +46,63 @@
     "picture": "https://chifrica.github.io/Technical-Committee/image/grace.jpg"
   },
   {
-    "name": "Juliet Ede",
-    "contact": "09055566777",
-    "email": ".........com",
+    "name": "Emmanuel Billy Adamu",
+    "contact": "08147493877",
+    "email": "emmanuelabilly@gmail.com",
+    "department": "Electrical Engineering",
+    "graduation": "2025",
+    "office": "Maintenance Head (2024/2025)",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
+  },
+  {
+    "name": "Emmanuel Simon",
+    "contact": "0804672397",
+    "email": "jane@example.com",
+    "department": "Telecommunication Engineering",
+    "graduation": "2026",
+    "office": "Secretary",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/althea.jpg"
+  },
+  {
+    "name": "Musa Micah Ishaya",
+    "contact": "07088547674",
+    "email": "micahishaya07@gmail.com",
+    "department": "Computer Engineering",
+    "graduation": "2026",
+    "office": "Assistant Media Head (2024/2025)",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
+  },
+  {
+    "name": "Zitta Jerry Zingfa",
+    "contact": "09033353670",
+    "email": "iamzittaa@gmail.com",
+    "department": "Economics",
+    "graduation": "2027",
+    "office": "Treasurer (2025/2026)",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
+  },
+  {
+    "name": "Peter Sharia Akpus",
+    "contact": "09136175188",
+    "email": "peteemaris@gmail.com",
+    "department": "Computer Engineering",
+    "graduation": "2028",
+    "office": "Media Head (2025/2026)",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
+  },
+  {
+    "name": "Juliet Ede Nkiruka",
+    "contact": "07013054222",
+    "email": "julietede222@gmail.com",
+    "department": "Microbiology",
+    "graduation": "2028",
+    "office": "Prayer Secretary (2025/2026)",
+    "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
+  },
+  {
+    "name": "Juliet Ede Nkiruka",
+    "contact": "07013054222",
+    "email": "julietede222@gmail.com",
     "department": "Microbiology",
     "graduation": "2028",
     "office": "Prayer Secretary (2025/2026)",
