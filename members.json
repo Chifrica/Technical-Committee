@@ -39,28 +39,28 @@
     "name": "Fatima",
     "contact": "09055566777",
     "email": "david@example.com",
-    "department": "Ushering",
+    "department": "History",
     "graduation": "2025",
     "office": "Treasurer (2024/2025)",
     "picture": "https://chifrica.github.io/Technical-Committee/image/fatima.jpg"
     
   },
   {
-    "name": "David Okon",
+    "name": "Grace",
     "contact": "09055566777",
-    "email": "david@example.com",
-    "department": "Ushering",
+    "email": "........com",
+    "department": "------",
     "graduation": "2025",
-    "office": "Treasurer (2024/2025)",
+    "office": "Sound Member",
     "picture": "https://chifrica.github.io/Technical-Committee/image/grace.jpg"
   },
   {
-    "name": "David Okon",
+    "name": "Juliet Ede",
     "contact": "09055566777",
-    "email": "david@example.com",
-    "department": "Ushering",
-    "graduation": "2025",
-    "office": "Treasurer (2024/2025)",
+    "email": ".........com",
+    "department": "Microbiology",
+    "graduation": "2028",
+    "office": "Prayer Secretary (2025/2026)",
     "picture": "https://chifrica.github.io/Technical-Committee/image/juliet.jpg"
   }
 ]  
