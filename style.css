@@ -69,7 +69,7 @@ form button:hover {
 
 .card img:hover,
 .member-card img:hover {
-  transform: scale(0.8);   /* zoom in */
+  transform: scale(1.5);   /* zoom in */
 }
 
 footer {
