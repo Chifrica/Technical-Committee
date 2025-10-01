@@ -5,7 +5,7 @@
     "email": "chikaonwunali2019@gmail.com",
     "department": "Computer Science",
     "graduation": "2025",
-    "position": "Assistant Media Head (2024/2025)",
+    "office": "Assistant Media Head (2024/2025)",
     "picture": "https://chifrica.github.io/Blessing-Onwunali/Image/image%20blog%202.jpeg"
   },
   {
@@ -14,8 +14,8 @@
     "email": "jane@example.com",
     "department": "Choir",
     "graduation": "2022",
-    "position": "Secretary",
-    "picture": "https://drive.google.com/file/d/182uFT18LOHC8uuodZoAgJz_-QzX_ijPo/view?usp=drivesdk"
+    "office": "Secretary",
+    "picture": "https://raw.githubusercontent.com/Chifrica/Technical-Committee/2e75c4c43603bf6ac6c8471013277d29b73ebd9f/image/IMG-20250917-WA0015.jpg"
   },
   {
     "name": "David Okon",
@@ -23,7 +23,7 @@
     "email": "david@example.com",
     "department": "Ushering",
     "graduation": "2024",
-    "position": "Member",
-    "picture": "https://drive.google.com/file/d/1_u-HFZjhREKxJQ1ql1A2dl4DLYnXkHB1/view?usp=drivesdk"
+    "office": "Member",
+    "picture": "https://github.com/Chifrica/Technical-Committee/blob/main/image/IMG-20250918-WA0043.jpg"
   }
 ]

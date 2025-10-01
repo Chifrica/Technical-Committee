@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <img src="${member.picture}" alt="Photo of ${member.name}">
         <h4>${member.name}</h4>
-        <p><strong>Position:</strong> ${member.position}</p>
+        <p><strong>Office:</strong> ${member.office}</p>
         <p><strong>Department:</strong> ${member.department}</p>
         <p><strong>Graduation Year:</strong> ${member.graduation}</p>
         <p><strong>Email:</strong> <a href="mailto:${member.email}">${member.email}</a></p>
